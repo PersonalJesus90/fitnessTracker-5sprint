@@ -37,7 +37,7 @@ func (t *Training) Parse(datastring string) (err error) {
 
 	duration, err := time.ParseDuration(parts[2])
 	if err != nil {
-		return fmt.Errorf("error parsing duration: %w", err)
+		return fmt.Errorf("error: parsing duration: %w", err)
 	}
 	t.Duration = duration
 
