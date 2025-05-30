@@ -65,11 +65,10 @@ func (t Training) ActionInfo() (string, error) {
 		return "", fmt.Errorf("error: count calories: %w", err)
 	}
 
-	result := fmt.Sprintf(`
-Тип тренировки: %s
+	result := fmt.Sprintf(`Тип тренировки: %s
 Длительность: %.2f ч.
 Дистанция: %.2f км.
-Скорость: %.2f км/ч
+Скорость: %.2f км/ч.
 Сожгли калорий: %.2f
 `, t.TrainingType, t.Duration.Hours(), distance, speed, calories)
 

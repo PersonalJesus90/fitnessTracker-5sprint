@@ -14,7 +14,7 @@ import (
 type DaySteps struct {
 	Steps    int
 	Duration time.Duration
-	Personal personaldata.Personal
+	personaldata.Personal
 }
 
 // Parse парсит строку с данными активности
@@ -52,9 +52,9 @@ func (ds *DaySteps) Parse(datastring string) (err error) {
 // ActionInfo формирует информацию о прогулке
 func (ds DaySteps) ActionInfo() (string, error) {
 
-	distance := spentenergy.Distance(ds.Steps, ds.Personal.Height)
+	distance := spentenergy.Distance(ds.Steps, ds.Height)
 
-	calories, err := spentenergy.WalkingSpentCalories(ds.Steps, ds.Personal.Weight, ds.Personal.Height, ds.Duration)
+	calories, err := spentenergy.WalkingSpentCalories(ds.Steps, ds.Weight, ds.Height, ds.Duration)
 	if err != nil {
 		return "", fmt.Errorf("error: in counting calories: %w", err)
 	}
